@@ -1,0 +1,35 @@
+IDIR =../include
+CC=g++-9
+CFLAGS=-I$(IDIR) -std=c++17 -Wall
+
+DEBUG ?= 0
+
+ifeq ($(DEBUG), 1)
+    CFLAGS += -DDEBUG -g
+endif
+
+ODIR=obj
+LDIR =../lib
+
+# pkg-config --libs glfw3 glew
+# pkg-config --static --libs glfw3 glew
+LIBS=-lglfw -lrt -lm -ldl -lXrandr -lXinerama -lXi -lXcursor -lXrender -lGLEW -lGLU -lGL -lpthread -pthread -ldrm -lXdamage -lXfixes -lX11-xcb -lxcb-glx -lxcb-dri2 -lXxf86vm -lXext -lX11 -lxcb -lXau -lXdmcp
+
+_DEPS = %.hpp
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+$(ODIR)/%.o: %.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+_OBJ = App.o Renderer.o VertexBuffer.o IndexBuffer.o VertexArray.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+$(info $$OBJ is [${OBJ}])
+
+.PHONY: App clean
+
+App: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+clean:
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ App

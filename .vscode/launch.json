@@ -1,0 +1,28 @@
+{
+    "configurations": [
+    {
+        "name": "OpenGL Debug",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/bin/AppDebug",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "setupCommands": [
+            {
+                "description": "Habilitar a reformatação automática para gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ],
+        "preLaunchTask": "Build OpenGL Application (Debug)",
+        "miDebuggerPath": "/usr/bin/gdb",
+        "sourceFileMap": {
+            "/build/glibc-LK5gWL/glibc-2.23": "/opt/src/glibc-2.23"
+        }
+    }
+    ]
+}
