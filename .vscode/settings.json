@@ -61,4 +61,5 @@
         "string": "cpp",
         "csignal": "cpp"
     },
+    "C_Cpp.intelliSenseCacheSize": 0,
 }
