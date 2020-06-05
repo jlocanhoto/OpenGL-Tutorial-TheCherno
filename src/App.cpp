@@ -1,3 +1,4 @@
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -11,7 +12,7 @@
 #include "../include/VertexBuffer.hpp"
 #include "../include/VertexBufferLayout.hpp"
 
-const std::string BASIC_SHADER_FILE = "./resources/shaders/Basic.glsl";
+const std::string BASIC_SHADER_FILE = "../resources/shaders/Basic.glsl";
 
 int main(int argc, char ** argv)
 {

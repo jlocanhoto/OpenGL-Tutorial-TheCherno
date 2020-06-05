@@ -18,20 +18,26 @@ DEBUG ?= 0
 
 ifeq ($(DEBUG), 1)
     CPP_DEBUG_FLAG=-DDEBUG
-	CXX_DEBUG_FLAG=-g
-	TARGET_EXEC = AppDebug
+    CXX_DEBUG_FLAG=-g
+    TARGET_EXEC = AppDebug
 endif
 
 # pkg-config --libs glfw3 glew
 # pkg-config --static --libs glfw3 glew
 OPENGL_FLAGS=-lglfw -lrt -lm -ldl -lXrandr -lXinerama -lXi -lXcursor -lXrender -lGLEW -lGLU -lGL -lpthread -pthread -ldrm -lXdamage -lXfixes -lX11-xcb -lxcb-glx -lxcb-dri2 -lXxf86vm -lXext -lX11 -lxcb -lXau -lXdmcp
 
+ifeq ($(OS),Windows_NT)
+    GLEW_STATIC_FLAG=-DGLEW_STATIC
+    OPENGL_FLAGS=-lglew32 -lglfw3 -lopengl32 -lglu32 -lgdi32 -static
+endif
+
 LIBS_FLAGS=$(OPENGL_FLAGS)
 
 # CC=gcc-9
-CXX=g++-9
-CPPFLAGS ?=$(INC_FLAGS) -MMD -MP $(CPP_DEBUG_FLAG)
-CXXFLAGS ?=-std=c++17 -Wall $(CXX_DEBUG_FLAG)
+# CXX=g++-9
+CXX=g++
+CPPFLAGS ?=$(INC_FLAGS) -MMD -MP $(CPP_DEBUG_FLAG) $(GLEW_STATIC_FLAG)
+CXXFLAGS ?=-O3 -std=c++17 -Wall $(CXX_DEBUG_FLAG)
 
 $(TARGET_DIR)/$(TARGET_EXEC): $(OBJS)
 	${MKDIR_P} ${TARGET_DIR}

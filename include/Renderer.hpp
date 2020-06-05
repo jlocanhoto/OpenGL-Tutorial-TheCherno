@@ -4,7 +4,7 @@
 
 #include <csignal>
 
-#define ASSERT(x) if (!(x)) raise(SIGTRAP)
+#define ASSERT(x) if (!(x)) raise(SIGABRT)
 
 #ifdef DEBUG
     #define GLCall(x) GLClearError();\
