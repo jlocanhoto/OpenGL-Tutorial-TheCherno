@@ -24,7 +24,7 @@ endif
 
 # pkg-config --libs glfw3 glew
 # pkg-config --static --libs glfw3 glew
-OPENGL_FLAGS=-lglfw -lrt -lm -ldl -lXrandr -lXinerama -lXi -lXcursor -lXrender -lGLEW -lGLU -lGL -lpthread -pthread -ldrm -lXdamage -lXfixes -lX11-xcb -lxcb-glx -lxcb-dri2 -lXxf86vm -lXext -lX11 -lxcb -lXau -lXdmcp
+OPENGL_FLAGS=$(shell pkg-config --static --libs glfw3 glew)
 
 ifeq ($(OS),Windows_NT)
     GLEW_STATIC_FLAG=-DGLEW_STATIC
