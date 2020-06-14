@@ -1,3 +1,5 @@
+# Old makefile
+
 IDIR =../include
 CC=g++-9
 CFLAGS=-I$(IDIR) -std=c++17 -Wall
