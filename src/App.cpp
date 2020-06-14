@@ -4,13 +4,13 @@
 
 #include <iostream>
 
-#include "../include/App.hpp"
-#include "../include/IndexBuffer.hpp"
-#include "../include/Renderer.hpp"
-#include "../include/Shader.hpp"
-#include "../include/VertexArray.hpp"
-#include "../include/VertexBuffer.hpp"
-#include "../include/VertexBufferLayout.hpp"
+#include "App.hpp"
+#include "IndexBuffer.hpp"
+#include "Renderer.hpp"
+#include "Shader.hpp"
+#include "VertexArray.hpp"
+#include "VertexBuffer.hpp"
+#include "VertexBufferLayout.hpp"
 
 const std::string BASIC_SHADER_FILE = "../resources/shaders/Basic.glsl";
 

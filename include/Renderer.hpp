@@ -2,7 +2,7 @@
 
 #include <GL/glew.h>
 
-#include "../include/debugbreak.hpp"
+#include "debugbreak.hpp"
 
 #define ASSERT(x) if (!(x)) debug_break()
 

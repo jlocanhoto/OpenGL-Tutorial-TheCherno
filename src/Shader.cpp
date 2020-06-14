@@ -4,8 +4,8 @@
 
 #include <GL/glew.h>
 
-#include "../include/Shader.hpp"
-#include "../include/Renderer.hpp"
+#include "Shader.hpp"
+#include "Renderer.hpp"
 
 Shader::Shader(const std::string &filepath)
     : m_FilePath(filepath), m_RendererID(0) {
