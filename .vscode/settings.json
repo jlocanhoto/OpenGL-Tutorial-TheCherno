@@ -60,7 +60,23 @@
         "random": "cpp",
         "string": "cpp",
         "csignal": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "bit": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "condition_variable": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "memory_resource": "cpp",
+        "optional": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp",
+        "shared_mutex": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "future": "cpp",
+        "iomanip": "cpp"
     },
     "C_Cpp.intelliSenseCacheSize": 0,
     "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
@@ -69,5 +85,10 @@
     {
         "MSYSTEM": "MINGW64",
         "CHERE_INVOKING":"1"
-    }
+    },
+    "glsllint.linkShader": false,
+    "glsllint.useIncludeDirOfFile": false,
+    "glsllint.additionalStageAssociations": {
+        ".glsl": "frag"
+    },
 }

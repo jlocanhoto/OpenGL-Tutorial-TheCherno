@@ -62,7 +62,7 @@ unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
 
         std::cout << "Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!" << std::endl;
         std::cout << message << std::endl;
-        
+
         glDeleteShader(id);
         return 0;
     }
@@ -96,7 +96,7 @@ int Shader::GetUniformsLocation(const std::string &name) {
     if (location == -1) {
         std::cout << "Warning: uniform '" << name << "' doesn't exist!" << std::endl;
     }
-    
+
     m_UniformLocationCache[name] = location;
 
     return location;
@@ -108,6 +108,16 @@ void Shader::Bind() const {
 
 void Shader::Unbind() const {
 	GLCall(glUseProgram(0));
+}
+
+void Shader::SetUniform1i(const std::string& name, int value) {
+    int location = GetUniformsLocation(name);
+	GLCall(glUniform1i(location, value));
+}
+
+void Shader::SetUniform1f(const std::string& name, float value) {
+    int location = GetUniformsLocation(name);
+	GLCall(glUniform1f(location, value));
 }
 
 void Shader::SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3) {
