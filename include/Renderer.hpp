@@ -2,9 +2,9 @@
 
 #include <GL/glew.h>
 
-#include <csignal>
+#include "../include/debugbreak.hpp"
 
-#define ASSERT(x) if (!(x)) raise(SIGABRT)
+#define ASSERT(x) if (!(x)) debug_break()
 
 #ifdef DEBUG
     #define GLCall(x) GLClearError();\
