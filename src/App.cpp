@@ -50,7 +50,7 @@ int main(int argc, char ** argv)
     std::cout << "Status: Using GLEW " << glewGetString(GLEW_VERSION) << std::endl;
     std::cout << glGetString(GL_VERSION) << std::endl;
 
-    {
+    try {
         float positions[] = {
             -0.5f, -0.5f, 0.0f, 0.0f,
              0.5f, -0.5f, 1.0f, 0.0f,
@@ -122,6 +122,8 @@ int main(int argc, char ** argv)
             /* Poll for and process events */
             glfwPollEvents();
         }
+    } catch (const std::exception& e) {
+        std::cout << "EXCEPTION: " << e.what() << std::endl;
     }
 
     glfwTerminate();
