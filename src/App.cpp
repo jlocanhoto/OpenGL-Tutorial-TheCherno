@@ -13,7 +13,7 @@
 #include "VertexBufferLayout.hpp"
 
 const std::string BASIC_SHADER_FILE = "../resources/shaders/Basic.glsl";
-const std::string TEXTURE_FILE = "../resources/textures/texture.png";
+const std::string TEXTURE_FILE = "../resources/textures/glow.png";
 
 int main(int argc, char ** argv)
 {
