@@ -12,8 +12,11 @@
 #include "VertexBuffer.hpp"
 #include "VertexBufferLayout.hpp"
 
+#include "external/glm/glm.hpp"
+#include "external/glm/gtc/matrix_transform.hpp"
+
 const std::string BASIC_SHADER_FILE = "../resources/shaders/Basic.glsl";
-const std::string TEXTURE_FILE = "../resources/textures/glow.png";
+const std::string TEXTURE_FILE = "../resources/textures/texture.png";
 
 int main(int argc, char ** argv)
 {
@@ -78,9 +81,12 @@ int main(int argc, char ** argv)
 
         IndexBuffer ib(indices, 6);
 
+        glm::mat4 proj = glm::ortho(-2.0f, 2.0f, -1.5f, 1.5f, -1.0f, 1.0f);
+
         Shader shader(BASIC_SHADER_FILE);
         shader.Bind();
         shader.SetUniform4f("u_Color", 0.0f, 0.3f, 0.8f, 1.0f);
+        shader.SetUniformMath4f("u_MVP", proj);
 
         Texture texture(TEXTURE_FILE);
         texture.Bind();

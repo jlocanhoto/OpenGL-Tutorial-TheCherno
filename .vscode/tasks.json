@@ -4,9 +4,9 @@
         {
             "type": "shell",
             "label": "Build OpenGL Application",
-            "command": "make clean; make; cd bin; ./App",
+            "command": "make clean; make -j (nproc); cd bin; ./App",
             "windows": {
-                "command": "cd /d/Projects/OpenGL-Tutorial-TheCherno && make clean && make && cd bin && ./App.exe",
+                "command": "cd /d/Projects/OpenGL-Tutorial-TheCherno && make clean && make -j $(nproc) && cd bin && ./App.exe",
             },
             "args": [
             ],
